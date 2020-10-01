@@ -8,8 +8,8 @@ export default function App() {
         <Route exact path={ROUTES.HOME}>
           <Home />
         </Route>
-        <Route path="/user">
-          <p>Hello world</p>
+        <Route path="/singin">
+          <Singin />
         </Route>
       </Router>
   );
