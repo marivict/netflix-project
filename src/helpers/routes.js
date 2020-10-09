@@ -1,7 +1,7 @@
 import React from 'react'
-import {Route, Redirect} from 'react-route-dom'
+import {Route, Redirect} from 'react-router-dom'
 
-export default IsUserRedirect({user, loggedInPath, children, ...rest}){
+export function IsUserRedirect({user, loggedInPath, children, ...rest}){
     return(
         <Route
             {...rest}
@@ -19,10 +19,33 @@ export default IsUserRedirect({user, loggedInPath, children, ...rest}){
                         />
                     )
                 }
-                
-            }
-        }
-        />
-        
+                return null;
+            }}
+        /> 
     )
 };
+
+export function ProtectRoute({user, children, ...rest}){
+    return(
+        <Route 
+            {...rest}
+            render={({location}) => {
+                if(user){
+                    return children
+                }
+
+                if(!user){
+                    
+                    return(
+                        <Redirect
+                            to={{
+                                pathname:'singin',
+                                state:{from: location},
+                            }} 
+                        />
+                    )
+                }
+            }}
+        />
+    )
+}
