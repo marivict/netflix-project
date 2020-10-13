@@ -58,5 +58,3 @@ export const Item = styled.li `
     margin-right: 0;
     }
 `
-
-export const User = styled.div ``
