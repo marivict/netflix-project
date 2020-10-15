@@ -8,7 +8,7 @@ import {
     Feature, 
     FeatureTitle, 
     FeatureText, 
-    FeautureClose, 
+    FeatureClose , 
     Maturity, 
     Content, 
     Meta,
@@ -82,7 +82,6 @@ Card.Feature = function CardFeature({children, category, ...restProps}){
                         src="/image/icons/close.png" alt="Close"
                     />
                 </Feature.Close>
-            </Content>
             <Group margin="30px " flexDirection="row" alignItems="center">
                 <Maturity rating={itemFeature.maturity} > 
                     {itemFeature.maturity < 12 ? 'PG': itemFeature.maturity} 
@@ -92,6 +91,8 @@ Card.Feature = function CardFeature({children, category, ...restProps}){
                     itemFeature.genre.slice(1)}
                 </FeatureText>
             </Group>
+                {children}
+            </Content>
         </Feature>
     ) : null
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import { SelectProfileContainer } from './profile'
 import {useState, useContext, useEffect} from 'react'
+import {FooterContainer} from './footer'
+import Fuse from 'fuse.js'
 import {FirebaseContext} from '../context/firebase'
 import {Header, Card, Loading} from '../components'
 import * as ROUTES from  '../constants/routes'
@@ -9,7 +11,7 @@ import logo from '../logo.svg'
 export default function BrowseContainer ({slides}) {
     const [category, setCategory] = useState('series')
     const[profile, setProfile] = useState({})
-    const[searchTeam, setSearchTeam] = useState('')
+    const[searchTerm, setSearchTerm] = useState('')
     const[loading, setLoading] = useState(true)
     const {firebase} = useContext(FirebaseContext)
     const user = firebase.auth().currentUser || {}
@@ -25,6 +27,18 @@ export default function BrowseContainer ({slides}) {
     useEffect(()=>{
         setSlidesRow(slides[category])
     }, [slides, category])
+
+    useEffect(()=>{
+      const fuse = new Fuse(slideRows, {
+          keys:['data.description', 'data.title', 'data.genre']
+      })
+      const results = fuse.search(searchTerm).map(({item})=>item)
+      if(slideRows.length > 0 && searchTerm.length > 3 && results.length > 0){
+          setSlideRows(results)
+      }else{
+          setSlideRows(slides[category])
+      }
+    }, [searchTerm])
     
     return profile.displayName ? (
         <>
@@ -51,7 +65,7 @@ export default function BrowseContainer ({slides}) {
                         </Header.TextLink>
                     </Header.Group>
                     <Header.Group>
-                        <Header.Search searchTeam={searchTeam} setSearchTeam={setSearchTeam} />
+                        <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                         <Header.Profile>
                             <Header.Picture src={user.photoURL} />
                             <Header.Dropdown>
@@ -87,10 +101,10 @@ export default function BrowseContainer ({slides}) {
                                     <Card.Image
                                         src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
                                     />
-                                    <Card.Meta>
+                                    {/* <Card.Meta>
                                         <Card.Subtitle>{item.title}</Card.Subtitle>
                                         <Card.Text>{item.description}</Card.Text>
-                                    </Card.Meta>
+                                    </Card.Meta> */}
                                 </Card.Item>
                             ))}
                         </Card.Entities>
@@ -103,6 +117,7 @@ export default function BrowseContainer ({slides}) {
                     </Card>
                 ))}
             </Card.Group>
+            <FooterContainer />
 
         </>
     ) : (
