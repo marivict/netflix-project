@@ -4,7 +4,7 @@ import {useState, useContext, useEffect} from 'react'
 import {FooterContainer} from './footer'
 import Fuse from 'fuse.js'
 import {FirebaseContext} from '../context/firebase'
-import {Header, Card, Loading} from '../components'
+import {Header, Card, Loading, Player} from '../components'
 import * as ROUTES from  '../constants/routes'
 import logo from '../logo.svg'
 
@@ -29,14 +29,14 @@ export default function BrowseContainer ({slides}) {
     }, [slides, category])
 
     useEffect(()=>{
-      const fuse = new Fuse(slideRows, {
+      const fuse = new Fuse(slidesRow, {
           keys:['data.description', 'data.title', 'data.genre']
       })
       const results = fuse.search(searchTerm).map(({item})=>item)
-      if(slideRows.length > 0 && searchTerm.length > 3 && results.length > 0){
-          setSlideRows(results)
+      if(slidesRow.length > 0 && searchTerm.length > 3 && results.length > 0){
+          setSlidesRow(results)
       }else{
-          setSlideRows(slides[category])
+          setSlidesRow(slides[category])
       }
     }, [searchTerm])
     
@@ -101,19 +101,19 @@ export default function BrowseContainer ({slides}) {
                                     <Card.Image
                                         src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
                                     />
-                                    {/* <Card.Meta>
+                                     <Card.Meta>
                                         <Card.Subtitle>{item.title}</Card.Subtitle>
                                         <Card.Text>{item.description}</Card.Text>
-                                    </Card.Meta> */}
+                                    </Card.Meta> 
                                 </Card.Item>
                             ))}
                         </Card.Entities>
-                        {/* <Card.Feature category={category}>
+                         <Card.Feature category={category}>
                                 <Player>
                                     <Player.Button />
                                     <Player.Video src="/videos/bunny.mp4"/>
                                 </Player>
-                        </Card.Feature> */}
+                        </Card.Feature> 
                     </Card>
                 ))}
             </Card.Group>
