@@ -2,9 +2,9 @@ import React, {useState, useContext, createContext} from 'react'
 import ReactDOM from 'react-dom'
 import {Container, Button, Overlay, Inner, Close} from './styles/player'
 
-export const PlayerContex =  createContext()
+export const PlayerContext =  createContext()
 
-export default function Player(){
+export default function Player({children, ...restProps}){
     const [showPlayer, setShowPlayer] = useState(false)
     return(
         <PlayerContext.Provider value= {{showPlayer, setShowPlayer}}>
@@ -30,6 +30,8 @@ Player.Video = function PlayerVideo({src, ...restProps}){
 }
 
 Player.Button = function PlayerButton({...restProps}){
+    const {showPlayer, setShowPlayer} = useContext(PlayerContext)
+
     return (
         <Button onClick={()=>setShowPlayer((showPlayer) => !showPlayer)}>
             Play
