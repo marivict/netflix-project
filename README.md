@@ -20,20 +20,15 @@ npm install
 npm start
 ```
 
-## Usage
+## Built with
 
-```python
-import foobar
+*[React](https://reactjs.org/) - Javascript Framework
+*[Firebase](https://firebase.google.com/)- Database
+*[Fuse](https://fusejs.io/) - Search
+*[Normalize](https://necolas.github.io/normalize.css/) - Normalize
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+## Autores
+* **Maria De La ROSA** - *Trabajo Inicial* - [marivict](https://github.com/marivict)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
