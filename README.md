@@ -28,7 +28,7 @@ npm start
 *[Normalize](https://necolas.github.io/normalize.css/) - Normalize
 
 ## Autores
-* **Maria De La ROSA** - *Trabajo Inicial* - [marivict](https://github.com/marivict)
+* **Maria De La Rosa** - *Trabajo Inicial* - [marivict](https://github.com/marivict)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
