@@ -45,6 +45,10 @@ Card.SubTitle = function CardSubTitle({children, ...restProps}){
     return <SubTitle {...restProps}>{children}</SubTitle>
 }
 
+Card.Text = function CardText({ children, ...restProps }) {
+    return <Text {...restProps}>{children}</Text>;
+  };
+
 Card.Entities = function CardEntities({children, ...restProps}){
     return <Entities {...restProps}>{children}</Entities>
 }

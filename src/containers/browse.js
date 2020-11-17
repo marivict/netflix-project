@@ -102,7 +102,7 @@ export default function BrowseContainer ({slides}) {
                                         src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
                                     />
                                      <Card.Meta>
-                                        <Card.Subtitle>{item.title}</Card.Subtitle>
+                                        <Card.SubTitle>{item.title}</Card.SubTitle>
                                         <Card.Text>{item.description}</Card.Text>
                                     </Card.Meta> 
                                 </Card.Item>
