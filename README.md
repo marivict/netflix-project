@@ -1,4 +1,4 @@
-# Easy Netflix Clone with React
+# Building a Netflix Clone - React Tutorial - Styled Components - Firebase (Firestore & Auth)
 
 This Project is based in Karl Hardwen's React Tutorial - [Link](https://youtu.be/x_EEwGe-a9o)
 
