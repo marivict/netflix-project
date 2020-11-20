@@ -80,12 +80,13 @@ Card.Feature = function CardFeature({children, category, ...restProps}){
         <Feature {...restProps} src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}>
             <Content>
                 <FeatureTitle>{itemFeature.title}</FeatureTitle>
-                <Feature.Text>{itemFeature.title}</Feature.Text>
-                <Feature.Close onClick={()=>setShowFeature(false)}>
+                <FeatureText>{itemFeature.description}</FeatureText>
+                <FeatureClose onClick={()=>setShowFeature(false)}>
                     <img
-                        src="/image/icons/close.png" alt="Close"
+                        src="/images/icons/close.png" alt="Close"
                     />
-                </Feature.Close>
+                </FeatureClose>
+                
             <Group margin="30px " flexDirection="row" alignItems="center">
                 <Maturity rating={itemFeature.maturity} > 
                     {itemFeature.maturity < 12 ? 'PG': itemFeature.maturity} 
