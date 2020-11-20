@@ -29,6 +29,3 @@ npm start
 
 ## Autores
 * **Maria De La Rosa** - *Trabajo Inicial* - [marivict](https://github.com/marivict)
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
