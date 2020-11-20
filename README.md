@@ -22,10 +22,10 @@ npm start
 
 ## Built with
 
--[React](https://reactjs.org/) - Javascript Framework
--[Firebase](https://firebase.google.com/)- Database
--[Fuse](https://fusejs.io/) - Search
--[Normalize](https://necolas.github.io/normalize.css/) - Normalize
+* [React](https://reactjs.org/) - Javascript Framework
+* [Firebase](https://firebase.google.com/)- Database
+* [Fuse](https://fusejs.io/) - Search
+* [Normalize](https://necolas.github.io/normalize.css/) - Normalize
 
 ## Autores
 * **Maria De La Rosa** - *Trabajo Inicial* - [marivict](https://github.com/marivict)
